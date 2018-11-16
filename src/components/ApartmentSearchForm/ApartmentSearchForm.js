@@ -4,11 +4,14 @@ import { Row, Col } from 'reactstrap';
 
 import RoomsCountSelect from '../form/RoomsCountSelect';
 import RangeInput from '../form/RangeInput';
+import LoadSelect from '../form/LoanSelect';
 
 export default class ApartmentSearchForm extends Component {
 
   render() {
     const { availableOptions, params, onParamsChange } = this.props;
+
+    console.log('params.credit', params.credit);
 
     return <div>
       <Row>
@@ -31,6 +34,14 @@ export default class ApartmentSearchForm extends Component {
               price_per_m_min: value.min
             })}}
           />
+        </Col>
+      </Row>
+      <Row>
+        <Col>
+            <LoadSelect
+              value={params.credit || []}
+              onChange={value => { onParamsChange({ credit: value }) }}
+            />
         </Col>
       </Row>
     </div>
