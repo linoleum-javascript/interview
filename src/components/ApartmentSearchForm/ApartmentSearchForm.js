@@ -5,13 +5,13 @@ import RoomsCountSelect from '../form/RoomsCountSelect';
 export default class ApartmentSearchForm extends Component {
 
   render() {
-    const { availableOptions } = this.props;
-    console.log(availableOptions);
+    const { availableOptions, params, onParamsChange } = this.props;
 
     return <div>
       <RoomsCountSelect
-        onChange={(value) => { console.log(value) }}
+        onChange={(values) => { onParamsChange({ rooms_count: values }) }}
         availableOptions={availableOptions.rooms_count}
+        value={params.rooms_count}
       />
     </div>
   }

@@ -27,7 +27,7 @@ const defaultOptions = [{
 
 export default class RoomsCountSelect extends Component {
   render() {
-    const { onChange, availableOptions } = this.props;
+    const { onChange, availableOptions, value } = this.props;
     const actualOptions = defaultOptions.map((item) => {
       return {
         ...item,
@@ -40,6 +40,8 @@ export default class RoomsCountSelect extends Component {
     return <Select
       options={actualOptions}
       onChange={onChange}
+      value={value}
+      multiple={true}
     />;
   }
 }
