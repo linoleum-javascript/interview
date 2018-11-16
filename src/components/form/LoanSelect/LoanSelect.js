@@ -11,8 +11,6 @@ export default class LoanSelect extends Component {
     const { checked, name } = event.target;
     let newValue;
 
-    console.log(checked, value, name);
-
     if (checked) {
       newValue = [...value, name];
     } else {

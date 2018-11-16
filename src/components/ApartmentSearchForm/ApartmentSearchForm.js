@@ -11,8 +11,6 @@ export default class ApartmentSearchForm extends Component {
   render() {
     const { availableOptions, params, onParamsChange } = this.props;
 
-    console.log('params.credit', params.credit);
-
     return <div>
       <Row>
         <Col>
