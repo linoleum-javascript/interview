@@ -21,6 +21,18 @@ export default class RangeInput extends Component {
     return null;
   }
 
+  onChange = (value) => {
+    let { min, max } = value;
+    const { availableMin, availableMax, onChange } = this.props;
+    if (min < availableMin) {
+      min = availableMin;
+    }
+    if (max > availableMax) {
+      max = availableMax;
+    }
+    onChange({ min, max });
+  }
+
   render() {
     const { title, availableMin, availableMax,
       onChange } = this.props;
@@ -29,10 +41,13 @@ export default class RangeInput extends Component {
 
     return <div style={{ padding: 50 }}>
       <InputRange
-        value={{ min: parseInt(min), max: parseInt(max) }}
+        value={{
+          min: parseInt(min || availableMin),
+          max: parseInt(max || availableMax)
+        }}
         minValue={availableMin}
         maxValue={availableMax}
-        onChange={value => this.setState({ min: value.min, max: value.max })}
+        onChange={this.onChange}
         onChangeComplete={value => onChange(value)}
       />
     </div>
