@@ -66,8 +66,6 @@ class ApartmentSearchContainer extends Component {
     const { availableOptions, prevAvailableOptions, list } = this.state;
     const { loadApartments, params } = this.props;
 
-    console.log(params);
-
     return <ApartmentSearch
       onParamsChange={this.onParamsChange}
       availableOptions={availableOptions || prevAvailableOptions}

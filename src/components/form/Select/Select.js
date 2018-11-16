@@ -26,7 +26,7 @@ export default class Select extends Component {
           value={value}
           key={value}
           disabled={disabled}
-        >{name}</option>;
+        >{name}</option>
       })}
     </Input>
   }

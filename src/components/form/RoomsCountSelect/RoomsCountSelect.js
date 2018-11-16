@@ -32,7 +32,7 @@ export default class RoomsCountSelect extends Component {
       return {
         ...item,
         // if an option is not available, it will be disabled
-        // (like inthe yandex.market interface)
+        // (like in the yandex.market's interface)
         disabled: availableOptions.indexOf(item.value) === -1
       };
     });

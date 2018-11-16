@@ -28,8 +28,9 @@ export const loadAvailableOptions = (param) => {
         credit: ['mortgage', 'by_installments'],
         // Some values are commented out just to show how the filter works
         rooms_count: [0, 1, 2, /** 3, */ 4, /** 5, */, 6],
-        price_per_m_min: 0,
-        price_per_m_max: 999999999
+        price_per_m_min: 1111111,
+        price_per_m_max: 999999999,
+        totalAvailable: 1234
       }
     });
   };
