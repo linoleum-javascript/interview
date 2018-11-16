@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { Row, Col } from 'reactstrap';
+import { Row, Col, Button } from 'reactstrap';
 
 import RoomsCountSelect from '../form/RoomsCountSelect';
 import RangeInput from '../form/RangeInput';
@@ -9,7 +9,8 @@ import LoadSelect from '../form/LoanSelect';
 export default class ApartmentSearchForm extends Component {
 
   render() {
-    const { availableOptions, params, onParamsChange } = this.props;
+    const { availableOptions, params, onParamsChange,
+      loadApartments } = this.props;
 
     return <div>
       <Row>
@@ -19,6 +20,7 @@ export default class ApartmentSearchForm extends Component {
             availableOptions={availableOptions.rooms_count}
             value={params.rooms_count}
           />
+          <p>Hold ctrl to select multiple values</p>
         </Col>
 
         <Col>
@@ -34,12 +36,20 @@ export default class ApartmentSearchForm extends Component {
           />
         </Col>
       </Row>
-      <Row>
+      <Row style={{ marginTop: 50 }}>
         <Col>
-            <LoadSelect
-              value={params.credit || []}
-              onChange={value => { onParamsChange({ credit: value }) }}
-            />
+          <LoadSelect
+            value={params.credit || []}
+            onChange={value => { onParamsChange({ credit: value }) }}
+          />
+        </Col>
+
+        <Col>
+          <Button
+            onClick={loadApartments}
+          >
+            Show {availableOptions.totalAvailable} options
+          </Button>
         </Col>
       </Row>
     </div>

@@ -3,6 +3,8 @@ import { START, SUCCESS } from '../actions';
 export const LOAD_APARTMENTS = 'LOAD_APARTMENTS';
 export const LOAD_AVAILABLE_OPTIONS = 'LOAD_AVAILABLE_OPTIONS';
 
+const rand = () => Math.floor(Math.random() * 12300);
+
 export const loadApartments = (param) => {
   return dispatch => {
     dispatch({ type: LOAD_APARTMENTS + START });
@@ -13,7 +15,13 @@ export const loadApartments = (param) => {
     
     dispatch({
       type: LOAD_APARTMENTS + SUCCESS,
-      response: []
+      response: [{
+        name: rand()
+      }, {
+        name: rand()
+      }, {
+        name: rand()
+      }]
     });
   };
 };
@@ -30,7 +38,8 @@ export const loadAvailableOptions = (param) => {
         rooms_count: [0, 1, 2, /** 3, */ 4, /** 5, */, 6],
         price_per_m_min: 1111111,
         price_per_m_max: 999999999,
-        totalAvailable: 1234
+        // just to show it actually works
+        totalAvailable: rand()
       }
     });
   };
