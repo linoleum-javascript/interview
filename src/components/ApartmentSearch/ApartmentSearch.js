@@ -1,7 +1,14 @@
 import React, { Component } from 'react';
 
+import ApartmentSearchForm from '../ApartmentSearchForm';
+
 export default class ApartmentSearch extends Component {
   render() {
-    return <div>component</div>
+    const { availableOptions } = this.props;
+    return <div>
+      <ApartmentSearchForm
+        availableOptions={availableOptions}
+      />
+    </div>;
   }
 }
